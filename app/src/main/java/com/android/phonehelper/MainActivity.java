@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, content, Toast.LENGTH_LONG).show();
                 List<ResultItem> searchResult = new ArrayList<>();
                 for(ResultItem item : dataset){
-                    if (item.getKeywords().equals(content)) {
+                    if (item.getKeywords().contains(content)) {
                         searchResult.add(item);
                     }
                 }
