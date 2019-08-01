@@ -2,9 +2,11 @@ package com.android.phonehelper;
 
 public class ResultItem {
     private String content;
-    private String video;
+    private int video;
+    private String keywords;
 
-    public ResultItem(String content, String video) {
+    public ResultItem(String keywords, String content, int video) {
+        this.keywords = keywords;
         this.content = content;
         this.video = video;
     }
@@ -13,7 +15,11 @@ public class ResultItem {
         return content;
     }
 
-    public String getVideo() {
+    public int getVideo() {
         return video;
+    }
+
+    public String getKeywords() {
+        return keywords;
     }
 }

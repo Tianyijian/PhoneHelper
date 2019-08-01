@@ -33,7 +33,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
     @Override
     public void onBindViewHolder(@NonNull ResultViewHolder holder, int position) {
         ResultItem item = items.get(position);
-        final String video = item.getVideo();
+        final int video = item.getVideo();
         final String content = item.getContent();
         holder.resultView.setOnClickListener(new View.OnClickListener() {
             @Override

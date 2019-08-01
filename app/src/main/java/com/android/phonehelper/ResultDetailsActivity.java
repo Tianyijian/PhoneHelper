@@ -19,11 +19,11 @@ public class ResultDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         setContentView(R.layout.result_details_layout);
         String text = intent.getStringExtra("content");
-        String videoUri = intent.getStringExtra("video");
+        int videoUri = intent.getIntExtra("video", -1);
         TextView content = findViewById(R.id.details_content);
         content.setText(text);
         final VideoView video = findViewById(R.id.details_video);
-        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.shipintonghua));
+        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + videoUri));
 //        video.setVideoPath("http://tanzi27niu.cdsb.mobi/wps/wp-content/uploads/2017/05/2017-05-17_17-33-30.mp4");
         MediaController controller = new MediaController(this);
         video.setMediaController(controller);

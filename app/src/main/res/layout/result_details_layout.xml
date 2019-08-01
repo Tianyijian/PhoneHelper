@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_gravity="center"
-        android:layout_weight="0.6">
+        android:layout_weight="0.7">
 
         <VideoView
             android:id="@+id/details_video"
@@ -26,10 +26,10 @@
         android:id="@+id/details_content"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="0.4"/>
-    <WebView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_weight="0.3"/>
+    <!--<WebView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-    </WebView>
+    <!--</WebView>-->
 </LinearLayout>
