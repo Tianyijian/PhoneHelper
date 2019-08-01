@@ -1,25 +1,31 @@
 package com.android.phonehelper;
 
-public class ResultItem {
+class ResultItem {
     private String content;
     private int video;
     private String keywords;
+    private int image;
 
-    public ResultItem(String keywords, String content, int video) {
+    ResultItem(String keywords, String content, int video, int image) {
+        this.image = image;
         this.keywords = keywords;
         this.content = content;
         this.video = video;
     }
 
-    public String getContent() {
+    String getContent() {
         return content;
     }
 
-    public int getVideo() {
+    int getVideo() {
         return video;
     }
 
-    public String getKeywords() {
+    String getKeywords() {
         return keywords;
+    }
+
+    int getImage() {
+        return image;
     }
 }

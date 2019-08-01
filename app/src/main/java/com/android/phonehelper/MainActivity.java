@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
     private List<ResultItem> dataInit(){
         List<ResultItem> dataset = new ArrayList<>();
         //数据存储逻辑
-        dataset.add(new ResultItem(getString(R.string.keywords1), getString(R.string.desc1), R.raw.red_packet));
-        dataset.add(new ResultItem(getString(R.string.keywords2), getString(R.string.desc2), R.raw.video));
-        dataset.add(new ResultItem(getString(R.string.keywords3), getString(R.string.desc3), R.raw.emoji));
+        dataset.add(new ResultItem(getString(R.string.keywords1), getString(R.string.desc1), R.raw.red_packet, R.drawable.red_packet));
+        dataset.add(new ResultItem(getString(R.string.keywords2), getString(R.string.desc2), R.raw.video, R.drawable.video));
+        dataset.add(new ResultItem(getString(R.string.keywords3), getString(R.string.desc3), R.raw.emoji, R.drawable.emoji));
         return dataset;
     }
 

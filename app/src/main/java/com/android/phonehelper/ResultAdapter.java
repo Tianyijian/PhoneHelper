@@ -17,7 +17,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
 
     private List<ResultItem> items;
     private Context context;
-    public ResultAdapter(List<ResultItem> items, Context context){
+    ResultAdapter(List<ResultItem> items, Context context){
         this.items = items;
         this.context = context;
     }
@@ -44,7 +44,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
                 context.startActivity(intent);
             }
         });
-        holder.image.setImageResource(R.drawable.ic_launcher_foreground);
+        holder.image.setImageResource(item.getImage());
         holder.content.setText(item.getContent());
     }
 
@@ -57,11 +57,12 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
         private TextView content;
         private ImageView image;
         View resultView;
-        public ResultViewHolder(@NonNull View itemView) {
+        ResultViewHolder(@NonNull View itemView) {
             super(itemView);
             resultView = itemView;
             content = resultView.findViewById(R.id.search_result_text);
             image = resultView.findViewById(R.id.search_result_image);
+            image.setAdjustViewBounds(false);
         }
     }
 }
