@@ -6,19 +6,20 @@
 
     <TextView
         android:paddingVertical="20dp"
+        android:gravity="center_vertical"
         android:id="@+id/search_result_text"
         android:layout_width="0px"
-        android:layout_height="150dp"
-        android:layout_weight="0.6"
-        android:textSize="20sp"/>
+        android:layout_height="175dp"
+        android:layout_weight="0.7"
+        android:textSize="18sp"/>
 
     <ImageView
         android:paddingVertical="20dp"
         android:id="@+id/search_result_image"
         android:layout_width="0px"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:layout_gravity="top"
-        android:layout_weight="0.4"
+        android:layout_weight="0.3"
         android:contentDescription="@string/search_image_desc"
         android:foregroundGravity="top"
         android:paddingTop="30dp"
