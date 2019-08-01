@@ -22,14 +22,12 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/details_content"
+
+    <WebView
+        android:id="@+id/html"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="0.3"/>
-    <!--<WebView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+        android:layout_weight="0.3">
+    </WebView>
 
-    <!--</WebView>-->
 </LinearLayout>
