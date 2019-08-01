@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +52,18 @@ public class MainActivity extends AppCompatActivity {
         result.setAdapter(adapter);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0) {
+            if (!Settings.canDrawOverlays(this)) {
+                Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "授权成功", Toast.LENGTH_SHORT).show();
+                startService(new Intent(MainActivity.this, FloatingService.class));
+            }
+        }
+    }
+
     private List<ResultItem> dataInit(){
         List<ResultItem> dataset = new ArrayList<>();
         //数据存储逻辑
@@ -57,4 +73,23 @@ public class MainActivity extends AppCompatActivity {
         return dataset;
     }
 
+    public void startFloatingButtonService() {
+        if (FloatingService.isStarted) {
+            return;
+        }
+        if (!Settings.canDrawOverlays(this)) {
+            Toast.makeText(this, "当前无权限，请授权", Toast.LENGTH_SHORT);
+            startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), 0);
+        } else {
+            startService(new Intent(MainActivity.this, FloatingService.class));
+        }
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(!FloatingService.isStarted)
+            startFloatingButtonService();
+    }
 }

@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ResultDetailsActivity" />
+        <service android:name=".FloatingService"/>
     </application>
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 </manifest>
