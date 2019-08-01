@@ -3,4 +3,29 @@
     <string name="search">搜索</string>
     <string name="search_hint">请输入要搜索的内容</string>
     <string name="search_image_desc">无法显示图片</string>
+    <string name="keywords1">发红包</string>
+    <string name="keywords2">发起视频通话</string>
+    <string name="keywords3">保存表情</string>
+    <string name="desc1">
+        如何发红包：\n
+        1. 点击右下加号标志；\n
+        2. 点击红包；\n
+        3. 输入金额和寄语；\n
+    </string>
+    <string name="desc2">
+        如何发起视频通话：\n
+        1. 点击右下角加号标志；\n
+        2. 点击视频通话；\n
+        3. 选择视频或语音通话；\n
+        4. 等待对方接听；\n
+    </string>
+    <string name="desc3">
+        如何保存表情：\n
+        1. 长安喜欢的表情；\n
+        2. 点击添加到表情；\n
+    </string>
+    <string name="video1">video1</string>
+    <string name="video2">video1</string>
+    <string name="video3">video1</string>
+
 </resources>
