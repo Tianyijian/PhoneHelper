@@ -1,4 +1,4 @@
-package com.android.phonehelper;
+package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,10 +15,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private RecyclerView result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final List<ResultItem> dataset = dataInit();
         Button button = findViewById(R.id.search_button);
         final EditText parameter = findViewById(R.id.search_what);
         button.setOnClickListener(new View.OnClickListener(){
@@ -26,26 +29,30 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String content = parameter.getText().toString();
                 Toast.makeText(MainActivity.this, content, Toast.LENGTH_LONG).show();
+                List<ResultItem> searchResult = new ArrayList<>();
+                for(ResultItem item : dataset){
+                    if (item.getKeywords().equals(content)) {
+                        searchResult.add(item);
+                    }
+                }
+                ResultAdapter adapter = new ResultAdapter(searchResult, MainActivity.this);
+                result.setAdapter(adapter);
             }
         });
-        RecyclerView result = findViewById(R.id.search_result);
-        List<ResultItem> itemList = new ArrayList<>();
-        StringBuilder builder = new StringBuilder();
-        String uri = "android.resource://" + getPackageName() + "/" + R.raw.shipintonghua;
-
-//        String uri = "https://www.w3school.com.cn//i/movie.ogg";
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 50; j++){
-                builder.append("第");
-                builder.append(j);
-                builder.append("个");
-            }
-            itemList.add(new ResultItem(builder.toString(), uri));
-            builder.setLength(0);
-        }
+        result = findViewById(R.id.search_result);
         LinearLayoutManager layoutManager= new LinearLayoutManager(this);
         result.setLayoutManager(layoutManager);
-        ResultAdapter adapter = new ResultAdapter(itemList, this);
+        ResultAdapter adapter = new ResultAdapter(dataset, this);
         result.setAdapter(adapter);
     }
+
+    private List<ResultItem> dataInit(){
+        List<ResultItem> dataset = new ArrayList<>();
+        //数据存储逻辑
+        dataset.add(new ResultItem(getString(R.string.keywords1), getString(R.string.desc1), getString(R.string.video1)));
+        dataset.add(new ResultItem(getString(R.string.keywords2), getString(R.string.desc2), getString(R.string.video2)));
+        dataset.add(new ResultItem(getString(R.string.keywords3), getString(R.string.desc3), getString(R.string.video3)));
+        return dataset;
+    }
+
 }
